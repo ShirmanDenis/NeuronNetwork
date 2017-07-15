@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NeuronNetwork.Core.Structure
+namespace NeuronNetwork.Core
 {
-    class NeuronBase : INeuron
+    public abstract class NeuronBase : INeuron
     {
-        public IWeight<object>[,] Weights { get; set; }
+        public double[,] Weights { get; set; }
+        public INeuron[,] Inputs { get; set; }
+        public double OutputValue { get; set; }
 
-        public NeuronBase(IWeight<object>[,] weights)
+        protected NeuronBase(INeuron[,] inputNeurons,double[,] weights)
         {
+            Inputs = inputNeurons;
             Weights = weights;
         }
     }

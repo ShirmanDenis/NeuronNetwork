@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NeuronNetwork.Core.Structure;
 
 namespace NeuronNetwork.Core
 {
-    interface INeuron
+   public interface INeuron
     {
-        IWeight<object>[,] Weights { get; set; }
+        double[,]  Weights { get; set; }
+        INeuron[,] Inputs { get; set; }
+        double     OutputValue { get; set; }
     }
 }
