@@ -9,13 +9,25 @@ namespace NeuronNetwork.Core
     public abstract class NeuronBase : INeuron
     {
         public double[,] Weights { get; set; }
-        public INeuron[,] Inputs { get; set; }
-        public double OutputValue { get; set; }
+        public List<double> Inputs { get; set; }
+        public double OutputValue => ActivationFunc(Sum());
 
-        protected NeuronBase(INeuron[,] inputNeurons,double[,] weights)
+        protected Func<double, double> ActivationFunc
         {
-            Inputs = inputNeurons;
+            get { return x => 1 / (1 + Math.Exp(-x)); }
+        }
+
+        protected NeuronBase(List<double> inputs, double[,] weights)
+        {
+            Inputs = inputs;
             Weights = weights;
+        }
+
+        private double Sum()
+        {
+            var result = 0.0;
+
+            return result;
         }
     }
 }

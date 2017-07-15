@@ -9,7 +9,7 @@ namespace NeuronNetwork.Core
    public interface INeuron
     {
         double[,]  Weights { get; set; }
-        INeuron[,] Inputs { get; set; }
-        double     OutputValue { get; set; }
+        List<double> Inputs { get; set; }
+        double     OutputValue { get; }
     }
 }
