@@ -36,7 +36,7 @@ namespace BackPropNet
             var learnCount = (int)Math.Floor(inputList.Count * 0.2);
             var workCount = inputList.Count - learnCount;
 
-            // Normalize values
+            // Another change to invoke conflict
             inputList.ForEach(elem =>
             {
                 for (var i = 0; i < elem.Length; i++)
